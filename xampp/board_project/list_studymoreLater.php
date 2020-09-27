@@ -47,7 +47,7 @@
 
 <body>
     <?php
-    $connect = mysqli_connect('localhost', 'USERID', 'PASSWORD', 'DATBASENAME') or die("connect fail");
+    $connect = mysqli_connect('localhost', 'USERID', 'PASSWORD', 'board_project') or die("connect fail");
     $query = "select * from board order by number desc";
     $result = $connect->query($query);
     $total = mysqli_num_rows($result);

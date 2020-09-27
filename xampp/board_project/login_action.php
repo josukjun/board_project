@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    $ceonnect = mysqli_connect("localhost", "", "", "") or die("fail");
+    $ceonnect = mysqli_connect("localhost", "root", "1234", "board_project") or die("fail");
 
     $id=$_GET['id'];
     $pw=$_GET['pw'];

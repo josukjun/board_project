@@ -1,5 +1,5 @@
 <?php
-    $connect = mysqli_connect("localhost", "", "", "") or die("fail");
+    $connect = mysqli_connect("localhost", "root", "1234", "board_project") or die("fail");
 
     $id = $_GET['id'];
     $pw = $_GET['pw'];
@@ -8,13 +8,12 @@
     $date = date('Y-m-d H:i:s');
 
     $query = "insert into member (id, pw, mail, date, permit) values ('$id', '$pw', '$email', '$date', 0)";
-
     //id 중복체크
-    $query_idcheck = "select count(*) from member where id='$id'";
+    $query_idcheck = "select * from member where id='$id'";
     $idcheck_result = mysqli_query($connect, $query_idcheck);
     $count = mysqli_num_rows($idcheck_result); //총 레코드 수 반환 함수 사용
     if($count == 0){
-        $result = $connect->query($query);
+        $result = mysqli_query($connect, $query); //$connect->query($query);
     }
     else{
 ?>      <script>
